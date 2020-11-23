@@ -8,8 +8,8 @@
 
 <script>
 import GameOver from '@/components/GameOver';
-import Header from './components/Header';
-import GameArea from './components/GameArea';
+import Header from '@/components/Header';
+import GameArea from '@/components/GameArea';
 
 export default {
   name: 'app',

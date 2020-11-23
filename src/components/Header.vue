@@ -63,13 +63,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$primary-color: #69F0AE;
-$secondary-color: #263238;
+$primary-color: rgb(52,245,242);
+$secondary-color: #ffffff;
+$text-color-on-hover: #263238;
 
 .header {
   width: 100%;
-  background-color: $primary-color;
   color: $secondary-color;
+  background: $primary-color linear-gradient(90deg, rgba(52, 245, 242, 1) 0%, rgba(244, 65, 209, 1) 45%, rgba(235, 54, 54, 1) 100%);
 }
 
 .header__container {
@@ -89,7 +90,7 @@ $secondary-color: #263238;
   transition: background-color 0.4s ease-in-out;
 
   &:hover {
-    background-color: lighten($primary-color, 10%);
+    color: $text-color-on-hover;
   }
 }
 

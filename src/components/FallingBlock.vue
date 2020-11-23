@@ -69,7 +69,7 @@ export default {
       return;
     }
 
-    this.blockWindowBottom = this.$refs.block.getBlockBottomCoord();
+    this.blockWindowBottom = this.$refs.block.getBlockBottomCoordinates();
     this.timer = setTimeout(() => {
       if (this.blockWindowBottom >= this.blockFinalPosition - 20) {
         clearTimeout(this.timer);

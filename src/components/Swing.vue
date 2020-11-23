@@ -40,7 +40,7 @@ export default {
     }),
   },
   beforeMount() {
-    // this.addRightBlock();
+    this.addRightBlock();
   },
 };
 </script>

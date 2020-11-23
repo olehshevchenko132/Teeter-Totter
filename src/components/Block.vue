@@ -25,7 +25,7 @@ export default {
     roundUp(number) {
       return Math.round(number * 100) / 100;
     },
-    getBlockBottomCoord() {
+    getBlockBottomCoordinates() {
       const domElement = this.$refs.element;
 
       return domElement.getBoundingClientRect().bottom;
