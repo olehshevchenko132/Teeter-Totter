@@ -46,7 +46,8 @@ export default {
     },
     blockFinalPosition() {
       const { top, bottom } = this.getSwingCoords();
-      return this.swingBending >= 0 ? top + ((bottom - top) / 2) * (1 - this.block.offset / (TEETER_TOTTER_WIDTH / 2))
+      return this.swingBending >= 0
+        ? top + ((bottom - top) / 2) * (1 - this.block.offset / (TEETER_TOTTER_WIDTH / 2))
         : bottom - ((bottom - top) / 2) * (1 - this.block.offset / (TEETER_TOTTER_WIDTH / 2));
     },
   },
