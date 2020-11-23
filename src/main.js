@@ -2,7 +2,8 @@ import Vue from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import store from './store';
+// eslint-disable-next-line import/extensions
+import store from './store/index.js';
 import App from './App.vue';
 
 library.add(faPause, faPlay);

@@ -11,7 +11,7 @@
 
 <script>
 import { FINISH_FALLING, TEETER_TOTTER_WIDTH } from '@/constants';
-import Block from './Block';
+import Block from './Block.vue';
 
 export default {
   name: 'FallingBlock',
@@ -46,7 +46,8 @@ export default {
     },
     blockFinalPosition() {
       const { top, bottom } = this.getSwingCoords();
-      return this.swingBending >= 0 ? top + ((bottom - top) / 2) * (1 - this.block.offset / (TEETER_TOTTER_WIDTH / 2))
+      return this.swingBending >= 0
+        ? top + ((bottom - top) / 2) * (1 - this.block.offset / (TEETER_TOTTER_WIDTH / 2))
         : bottom - ((bottom - top) / 2) * (1 - this.block.offset / (TEETER_TOTTER_WIDTH / 2));
     },
   },
@@ -63,9 +64,11 @@ export default {
       this.blockDropboxTop += 20;
     },
   },
+  // eslint-disable-next-line consistent-return
   updated() {
     if (this.isPaused) return clearTimeout(this.timer);
     if (this.index !== 0) {
+      // eslint-disable-next-line consistent-return
       return;
     }
 

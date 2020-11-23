@@ -67,10 +67,14 @@ $primary-color: rgb(52,245,242);
 $secondary-color: #ffffff;
 $text-color-on-hover: #263238;
 
+$colour1: rgba(52, 245, 242, 1) 0%;
+$colour2: rgba(244, 65, 209, 1) 45%;
+$colour3: rgba(235, 54, 54, 1) 100%;
+
 .header {
   width: 100%;
   color: $secondary-color;
-  background: $primary-color linear-gradient(90deg, rgba(52, 245, 242, 1) 0%, rgba(244, 65, 209, 1) 45%, rgba(235, 54, 54, 1) 100%);
+  background: $primary-color linear-gradient(90deg, $colour1, $colour2, $colour3);
 }
 
 .header__container {

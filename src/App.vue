@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import GameOver from '@/components/GameOver';
-import Header from '@/components/Header';
-import GameArea from '@/components/GameArea';
+import GameOver from '@/components/GameOver.vue';
+import Header from '@/components/Header.vue';
+import GameArea from '@/components/GameArea.vue';
 
 export default {
   name: 'app',

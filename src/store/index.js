@@ -23,6 +23,7 @@ import { generateRandomBlock } from '@/helper';
 Vue.use(Vuex);
 
 function getBlockPower(array) {
+  // eslint-disable-next-line no-param-reassign,no-return-assign
   return array.reduce((acc, item) => acc += item.weight * item.offset, 0);
 }
 
@@ -46,11 +47,17 @@ export default new Vuex.Store({
 
       if (!leftSum) return MAX_BENDING;
       if (leftSum === rightSum) return 0;
-      return leftSum > rightSum ? (leftSum - rightSum) / leftSum * -100 : (rightSum - leftSum) / rightSum * 100;
+      return leftSum > rightSum
+        // eslint-disable-next-line no-mixed-operators
+        ? (leftSum - rightSum) / leftSum * -100
+        // eslint-disable-next-line no-mixed-operators
+        : (rightSum - leftSum) / rightSum * 100;
     },
     gameOverStatus(state, getters) {
       const { leftSum, rightSum, swingBending } = getters;
-      return swingBending > MAX_BENDING || swingBending < MIN_BENDING || Math.abs(leftSum - rightSum) > MAX_SIDES_DIFFERENCE;
+      return swingBending > MAX_BENDING
+        || swingBending < MIN_BENDING
+        || Math.abs(leftSum - rightSum) > MAX_SIDES_DIFFERENCE;
     },
   },
   mutations: {
@@ -67,6 +74,7 @@ export default new Vuex.Store({
     },
     [INITIALIZE_FALLING_BLOCKS](state) {
       state.fallingBlocks = [];
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < FALLING_BLOCKS_COUNT; i++) {
         const randomBlock = generateRandomBlock();
         state.fallingBlocks.push(randomBlock);
