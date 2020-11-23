@@ -20,7 +20,7 @@ import {
   TIMEOUT_STEP_DECREASING,
   INITIAL_TIMEOUT,
 } from '@/constants';
-import FallingBlock from './FallingBlock';
+import FallingBlock from './FallingBlock.vue';
 
 export default {
   name: 'Dropbox',
@@ -49,6 +49,7 @@ export default {
       if (evt.keyCode === 37) this.moveBlockLeft();
     },
     onFinishFalling() {
+      // eslint-disable-next-line no-plusplus
       this.iterationCounter++;
       if (this.iterationCounter === ITERATION_COUNT_INCREASING) {
         this.timeOut -= TIMEOUT_STEP_DECREASING;

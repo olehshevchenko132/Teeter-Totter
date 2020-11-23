@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Swing from './Swing';
-import Pillar from './Pillar';
+import Swing from './Swing.vue';
+import Pillar from './Pillar.vue';
 
 export default {
   name: 'TeetleTottle',

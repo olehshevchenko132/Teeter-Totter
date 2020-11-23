@@ -13,7 +13,7 @@
 <script>
 import { mapState, mapMutations } from 'vuex';
 import { ADD_RIGHT_SIDE_BLOCK } from '@/constants';
-import Block from './Block';
+import Block from './Block.vue';
 
 export default {
   name: 'Swing',

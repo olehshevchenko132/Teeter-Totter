@@ -7,8 +7,8 @@
 
 <script>
 import { mapState } from 'vuex';
-import Dropbox from './Dropbox';
-import TeetleTottle from './TeetleTottle';
+import Dropbox from './Dropbox.vue';
+import TeetleTottle from './TeetleTottle.vue';
 
 export default {
   name: 'GameArea',
