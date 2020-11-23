@@ -50,9 +50,6 @@ export default new Vuex.Store({
     },
     gameOverStatus(state, getters) {
       const { leftSum, rightSum, swingBending } = getters;
-
-      // console.log(swingBending);
-      // console.log(Math.abs(leftSum - rightSum));
       return swingBending > MAX_BENDING || swingBending < MIN_BENDING || Math.abs(leftSum - rightSum) > MAX_SIDES_DIFFERENCE;
     },
   },
@@ -120,9 +117,6 @@ export default new Vuex.Store({
     [GAME_OVER]({ commit }) {
       commit(GAME_OVER);
       commit(RESET_STATE);
-      // setTimeout(() => {
-      //   dispatch(START_NEW_GAME);
-      // }, 10000);
     },
     [START_NEW_GAME]({ commit }) {
       commit(NEW_GAME);
