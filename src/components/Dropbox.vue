@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 import {
   INITIALIZE_FALLING_BLOCKS,
   MOVE_LEFT,
@@ -44,6 +44,9 @@ export default {
       moveBlockRight: MOVE_RIGHT,
       moveBlockLeft: MOVE_LEFT,
     }),
+    ...mapState({
+      isGameOver: (state) => state.isGameOver,
+    }),
     onKeyDown(evt) {
       if (evt.keyCode === 39) this.moveBlockRight();
       if (evt.keyCode === 37) this.moveBlockLeft();
@@ -53,6 +56,11 @@ export default {
       this.iterationCounter++;
       if (this.iterationCounter === ITERATION_COUNT_INCREASING) {
         this.timeOut -= TIMEOUT_STEP_DECREASING;
+        this.iterationCounter = 0;
+      }
+
+      if (this.isGameOver) {
+        this.timeOut = INITIAL_TIMEOUT;
         this.iterationCounter = 0;
       }
     },
