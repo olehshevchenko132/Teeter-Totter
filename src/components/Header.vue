@@ -13,9 +13,7 @@
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import { mapMutations, mapState } from 'vuex';
 import {
-  ADD_RIGHT_SIDE_BLOCK,
-  INITIALIZE_FALLING_BLOCKS,
-  NEW_GAME, RESET_STATE,
+  START_NEW_GAME,
   TOGGLE_PAUSE,
 } from '@/constants';
 
@@ -46,10 +44,7 @@ export default {
       this.togglePause();
 
       if (this.gameOver) {
-        this.$store.commit(RESET_STATE);
-        this.$store.commit(NEW_GAME);
-        this.$store.commit(ADD_RIGHT_SIDE_BLOCK);
-        this.$store.commit(INITIALIZE_FALLING_BLOCKS);
+        this.$store.dispatch(START_NEW_GAME);
       }
     },
   },

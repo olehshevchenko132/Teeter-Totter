@@ -18,14 +18,9 @@ import {
   GAME_OVER,
   NEW_GAME,
 } from '@/constants';
-import { generateRandomBlock } from '@/helper';
+import { generateBlock, generateRandomBlock, getBlockPower } from '@/helper';
 
 Vue.use(Vuex);
-
-function getBlockPower(array) {
-  // eslint-disable-next-line no-param-reassign,no-return-assign
-  return array.reduce((acc, item) => acc += item.weight * item.offset, 0);
-}
 
 export default new Vuex.Store({
   state: {
@@ -65,7 +60,9 @@ export default new Vuex.Store({
       state.isPaused = !state.isPaused;
     },
     [ADD_RIGHT_SIDE_BLOCK](state) {
-      const randomBlock = generateRandomBlock();
+      const leftSideBlocks = state.leftSideBlocks;
+      const rightSideBlocks = state.rightSideBlocks;
+      const randomBlock = generateBlock({ leftSideBlocks, rightSideBlocks });
       state.rightSideBlocks.push(randomBlock);
     },
     [ADD_LEFT_SIDE_BLOCK](state) {
@@ -100,6 +97,7 @@ export default new Vuex.Store({
     },
     [GAME_OVER](state) {
       state.isGameOver = true;
+      state.isPaused = true;
     },
     [NEW_GAME](state) {
       state.isGameOver = false;
@@ -124,9 +122,9 @@ export default new Vuex.Store({
     },
     [GAME_OVER]({ commit }) {
       commit(GAME_OVER);
-      commit(RESET_STATE);
     },
     [START_NEW_GAME]({ commit }) {
+      commit(RESET_STATE);
       commit(NEW_GAME);
       commit(ADD_RIGHT_SIDE_BLOCK);
       commit(INITIALIZE_FALLING_BLOCKS);
