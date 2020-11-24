@@ -100,6 +100,7 @@ export default new Vuex.Store({
     },
     [GAME_OVER](state) {
       state.isGameOver = true;
+      state.isPaused = true;
     },
     [NEW_GAME](state) {
       state.isGameOver = false;
@@ -124,9 +125,9 @@ export default new Vuex.Store({
     },
     [GAME_OVER]({ commit }) {
       commit(GAME_OVER);
-      commit(RESET_STATE);
     },
     [START_NEW_GAME]({ commit }) {
+      commit(RESET_STATE);
       commit(NEW_GAME);
       commit(ADD_RIGHT_SIDE_BLOCK);
       commit(INITIALIZE_FALLING_BLOCKS);
